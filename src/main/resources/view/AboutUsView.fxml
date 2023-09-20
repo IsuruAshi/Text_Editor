@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="370.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.AboutUsSceneController">
+   <children>
+      <Label layoutX="217.0" layoutY="14.0" text="About Us">
+         <font>
+            <Font name="FreeMono Bold Oblique" size="24.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" layoutX="20.0" layoutY="52.0" prefHeight="273.0" prefWidth="510.0" text="At Text Editor, we are dedicated to revolutionizing your digital workspace through our cutting-edge text editor software. With a relentless commitment to innovation, we strive to empower individuals and businesses alike to unlock their full creative potential.&#10;&#10;Our user-centric approach ensures that our software is intuitive and feature-rich, making it suitable for both novice and experienced users. We prioritize seamless collaboration, offering real-time editing and sharing capabilities that streamline productivity.&#10;&#10;Security is paramount to us, with robust encryption and privacy features safeguarding your sensitive data. With [Text Editor Software], you can trust that your work is protected.&#10;&#10;Join us on our mission to transform the way you work with text, and experience a new era of efficiency and creativity." wrapText="true">
+         <font>
+            <Font name="FreeSerif Italic" size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
