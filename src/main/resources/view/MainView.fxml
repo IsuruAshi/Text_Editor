@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainViewController">
    <children>
       <TextArea fx:id="txtTextArea" layoutX="39.0" layoutY="54.0" prefHeight="279.0" prefWidth="535.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
@@ -23,7 +22,7 @@
             <items>
               <MenuItem fx:id="mbFileNew" mnemonicParsing="false" onAction="#mbFileNewOnAction" text="New" />
                   <MenuItem fx:id="mbFileOpen" mnemonicParsing="false" onAction="#mbFileOpenOnAction" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="mbFileSave" mnemonicParsing="false" onAction="#mbFileSaveOnAction" text="Save" />
                   <MenuItem mnemonicParsing="false" text="Print" />
                   <MenuItem fx:id="mbFileExit" mnemonicParsing="false" onAction="#mbFileExit" text="Exit" />
             </items>
@@ -33,7 +32,7 @@
               <MenuItem mnemonicParsing="false" text="Cut" />
                   <MenuItem mnemonicParsing="false" text="Copy" />
                   <MenuItem mnemonicParsing="false" text="Paste" />
-                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem fx:id="mbEditSelectAll" mnemonicParsing="false" text="Select All" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
