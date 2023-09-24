@@ -6,25 +6,28 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
+import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class MainViewController {
     public AnchorPane root;
-    public TextArea txtTextArea;
+    //public TextArea txtTextArea;
     public MenuItem mbFileNew;
     public MenuItem mbFileOpen;
     public MenuItem mbFileExit;
     public MenuItem mbHelpUserGuide;
     public MenuItem mbAboutUs;
     public MenuItem mbFileSave;
+    public MenuItem mbEditSelectAll;
+    public HTMLEditor txtTexthtml;
 
 
     public void mbFileNewOnAction(ActionEvent actionEvent) throws IOException {
@@ -48,19 +51,44 @@ public class MainViewController {
             byte[] buffer=new byte[1024];
             int read=-1;
             while ((read= bis.read(buffer))!=-1){
-                txtTextArea.setText(new String(buffer,0,read));
+                txtTexthtml.setHtmlText(new String(buffer,0,read));
             }
+//        txtTexthtml.setHtmlText(new String(bis.readAllBytes()));
+
         }finally {
             bis.close();
         }
 
     }
+    public void mbFileSaveOnAction(ActionEvent actionEvent) throws IOException {
+        String text=txtTexthtml.getHtmlText();
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.setTitle("Save Location");
+        File file=fileChooser.showOpenDialog(root.getScene().getWindow());
+        FileOutputStream fos=new FileOutputStream(file);
+        BufferedOutputStream bos=null;
+        try {
 
-    public void mbFileExit(ActionEvent actionEvent) {
-        System.exit(0);
+            bos = new BufferedOutputStream(fos);
+            bos.write(text.getBytes());
+        }finally {
+            bos.close();
+        }
     }
 
-    public void mbHelpUserGuideOnAction(ActionEvent actionEvent) {
+    public void mbFileExit(ActionEvent actionEvent) {
+       Stage stage= (Stage) root.getScene().getWindow();
+       stage.close();
+    }
+
+    public void mbHelpUserGuideOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane root2=FXMLLoader.load(getClass().getResource("/view/UserGuideView.fxml"));
+        Scene userScene=new Scene(root2);
+        Stage userStage=new Stage();
+        userStage.setScene(userScene);
+        userStage.initModality(Modality.APPLICATION_MODAL);
+        userStage.centerOnScreen();
+        userStage.show();
     }
 
     public void mbAboutUsOnAction(ActionEvent actionEvent) throws IOException {
@@ -70,11 +98,11 @@ public class MainViewController {
         aboutStage.setScene(aboutScene);
         aboutStage.setTitle("About Us");
         aboutStage.centerOnScreen();
-        aboutStage.initModality(Modality.APPLICATION_MODAL);
+        aboutStage.initStyle(StageStyle.TRANSPARENT);
+        root1.setBackground(Background.fill(Color.TRANSPARENT));
+        aboutScene.setFill(Color.TRANSPARENT);
         aboutStage.show();
     }
 
-    public void mbFileSaveOnAction(ActionEvent actionEvent) {
 
-    }
 }

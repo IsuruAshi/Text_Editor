@@ -2,20 +2,26 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="370.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.AboutUsSceneController">
+<AnchorPane fx:id="root" onKeyReleased="#KeyReleasedOnAction" onMouseDragged="#onMouseMove" onMouseReleased="#OnMouseClicked" prefHeight="723.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.AboutUsSceneController">
    <children>
-      <Label layoutX="217.0" layoutY="14.0" text="About Us">
+      <ImageView fitHeight="813.0" fitWidth="722.0" layoutX="55.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset.img/image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="351.0" layoutY="153.0" text="About Us" textFill="#fffefe">
          <font>
-            <Font name="FreeMono Bold Oblique" size="24.0" />
+            <Font name="FreeMono Bold" size="24.0" />
          </font>
       </Label>
-      <TextArea editable="false" layoutX="20.0" layoutY="52.0" prefHeight="273.0" prefWidth="510.0" text="At Text Editor, we are dedicated to revolutionizing your digital workspace through our cutting-edge text editor software. With a relentless commitment to innovation, we strive to empower individuals and businesses alike to unlock their full creative potential.&#10;&#10;Our user-centric approach ensures that our software is intuitive and feature-rich, making it suitable for both novice and experienced users. We prioritize seamless collaboration, offering real-time editing and sharing capabilities that streamline productivity.&#10;&#10;Security is paramount to us, with robust encryption and privacy features safeguarding your sensitive data. With [Text Editor Software], you can trust that your work is protected.&#10;&#10;Join us on our mission to transform the way you work with text, and experience a new era of efficiency and creativity." wrapText="true">
+      <TextArea editable="false" layoutX="212.0" layoutY="197.0" opacity="0.7" prefHeight="390.0" prefWidth="394.0" style="-fx-pref-column-count: black;" text="At Text Editor, we are dedicated to revolutionizing your digital workspace through our cutting-edge text editor software. With a relentless commitment to innovation, we strive to empower individuals and businesses alike to unlock their full creative potential.&#10;&#10;Our user-centric approach ensures that our software is intuitive and feature-rich, making it suitable for both novice and experienced users. We prioritize seamless collaboration, offering real-time editing and sharing capabilities that streamline productivity.&#10;&#10;Security is paramount to us, with robust encryption and privacy features safeguarding your sensitive data. With [Text Editor Software], you can trust that your work is protected.&#10;&#10;Join us on our mission to transform the way you work with text, and experience a new era of efficiency and creativity." wrapText="true">
          <font>
-            <Font name="FreeSerif Italic" size="14.0" />
+            <Font name="FreeSerif Bold Italic" size="15.0" />
          </font>
       </TextArea>
    </children>
