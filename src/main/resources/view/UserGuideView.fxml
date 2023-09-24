@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #12486B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.UserGuideController">
+   <children>
+      <Label layoutX="244.0" layoutY="14.0" text="User Guide" textFill="#ebeeee" AnchorPane.leftAnchor="244.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" layoutX="29.0" layoutY="44.0" prefHeight="346.0" prefWidth="543.0" style="-fx-background-color: yellow;" text="## Introduction&#10;&#10;Welcome to the Simple Text Editor User Guide! This guide will help you quickly get started with our text editor, focusing on essential actions such as cut, copy, paste, and selecting all. Whether you're a beginner or just need a quick reference, this guide is for you.&#10;&#10;## Table of Contents&#10;&#10;1. **Getting Started**&#10;   - Download and Installation&#10;   - Launching the Text Editor&#10;&#10;2. **Basic Text Editing**&#10;   - Typing and Editing Text&#10;   - Copying Text&#10;   - Cutting Text&#10;   - Pasting Text&#10;   - Selecting All Text&#10;&#10;3. **Keyboard Shortcuts**&#10;   - Common Keyboard Shortcuts&#10;&#10;## 1. Getting Started&#10;&#10;### Download and Installation&#10;&#10;Download and install the text editor from our website or the provided installation package.&#10;&#10;### Launching the Text Editor&#10;&#10;Find the text editor icon on your desktop or in your applications folder. Double-click the icon to open the text editor.&#10;&#10;## 2. Basic Text Editing&#10;&#10;### Typing and Editing Text&#10;&#10;- Click inside the document and start typing to add or edit text.&#10;&#10;### Copying Text&#10;&#10;- Select the text you want to copy.&#10;- Right-click and choose &quot;Copy&quot; or press `Ctrl + C` (Windows) or `Cmd + C` (Mac).&#10;&#10;### Cutting Text&#10;&#10;- Select the text you want to cut.&#10;- Right-click and choose &quot;Cut&quot; or press `Ctrl + X` (Windows) or `Cmd + X` (Mac).&#10;&#10;### Pasting Text&#10;&#10;- Click where you want to paste the text.&#10;- Right-click and choose &quot;Paste&quot; or press `Ctrl + V` (Windows) or `Cmd + V` (Mac).&#10;&#10;### Selecting All Text&#10;&#10;- To select all the text in the document, press `Ctrl + A` (Windows) or `Cmd + A` (Mac).&#10;&#10;## 3. Keyboard Shortcuts&#10;&#10;Here are some common keyboard shortcuts for quick actions:&#10;&#10;- Copy: `Ctrl + C` (Windows) or `Cmd + C` (Mac)&#10;- Cut: `Ctrl + X` (Windows) or `Cmd + X` (Mac)&#10;- Paste: `Ctrl + V` (Windows) or `Cmd + V` (Mac)&#10;- Select All: `Ctrl + A` (Windows) or `Cmd + A` (Mac)&#10;&#10;---&#10;&#10;Congratulations! You've completed the basic user guide for our simple text editor, focusing on essential actions. With these instructions, you can quickly get started with editing text and using keyboard shortcuts. Enjoy using our text editor" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="44.0" />
+   </children>
+</AnchorPane>
