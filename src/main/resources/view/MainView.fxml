@@ -42,6 +42,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextArea fx:id="txtTexthtml" layoutY="27.0" prefHeight="753.0" prefWidth="886.0" />
+      <TextArea fx:id="txtTexthtml" layoutY="27.0" prefHeight="756.0" prefWidth="886.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
    </children>
 </AnchorPane>
