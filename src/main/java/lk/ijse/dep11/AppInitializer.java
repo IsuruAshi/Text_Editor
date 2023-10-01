@@ -1,7 +1,6 @@
 package lk.ijse.dep11;
 
 import javafx.animation.PauseTransition;
-import javafx.animation.Transition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,12 +25,17 @@ public class AppInitializer extends Application {
         Scene startScene=new Scene(root);
         primaryStage.setScene(startScene);
         primaryStage.setTitle("Text Editor");
+        try {
+            primaryStage.initStyle(StageStyle.TRANSPARENT);
+            root.setBackground(Background.fill(Color.TRANSPARENT));
+            startScene.setFill(Color.TRANSPARENT);
+            primaryStage.centerOnScreen();
+            primaryStage.show();
 
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        root.setBackground(Background.fill(Color.TRANSPARENT));
-        startScene.setFill(Color.TRANSPARENT);
-        primaryStage.centerOnScreen();
-        primaryStage.show();
+        }catch (ClassCastException e){
+
+        }
+
 
         PauseTransition delay=new PauseTransition(Duration.seconds(1.0));
         delay.setOnFinished(e->{
@@ -46,7 +50,7 @@ public class AppInitializer extends Application {
                 mainStage.centerOnScreen();
                 mainStage.show();
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                //throw new RuntimeException(ex);
             }
         });
         delay.play();

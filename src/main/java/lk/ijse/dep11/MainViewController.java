@@ -146,6 +146,6 @@ public class MainViewController {
     }
 
     public void mbEditSelectAllOnAction(ActionEvent e) {
-
+        txtTexthtml.selectAll();
     }
 }
