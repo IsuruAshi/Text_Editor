@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -27,7 +29,12 @@ public class MainViewController {
     public MenuItem mbAboutUs;
     public MenuItem mbFileSave;
     public MenuItem mbEditSelectAll;
-    public HTMLEditor txtTexthtml;
+    public TextArea txtTexthtml;
+    public MenuItem mbEditCut;
+    public MenuItem mbEditCopy;
+    public MenuItem mbEditPaste;
+
+    String selectedText;
 
 
     public void mbFileNewOnAction(ActionEvent actionEvent) throws IOException {
@@ -44,36 +51,36 @@ public class MainViewController {
         FileChooser fileChooser=new FileChooser();
         fileChooser.setTitle("Open Text File");
         File file=fileChooser.showOpenDialog(root.getScene().getWindow());
-
-        FileInputStream fis=new FileInputStream(file);
-        BufferedInputStream bis=new BufferedInputStream(fis);
-        try{
-            byte[] buffer=new byte[1024];
-            int read=-1;
-            while ((read= bis.read(buffer))!=-1){
-                txtTexthtml.setHtmlText(new String(buffer,0,read));
+        if(file!=null){
+            FileInputStream fis=new FileInputStream(file);
+            BufferedInputStream bis=new BufferedInputStream(fis);
+            try{
+                byte[] buffer=new byte[1024];
+                int read=-1;
+                while ((read= bis.read(buffer))!=-1){
+                    txtTexthtml.setText(new String(buffer,0,read));
+                }
+            }finally {
+                bis.close();
             }
-//        txtTexthtml.setHtmlText(new String(bis.readAllBytes()));
-
-        }finally {
-            bis.close();
         }
-
     }
     public void mbFileSaveOnAction(ActionEvent actionEvent) throws IOException {
-        String text=txtTexthtml.getHtmlText();
+        String text=txtTexthtml.getText();
         FileChooser fileChooser=new FileChooser();
         fileChooser.setTitle("Save Location");
-        File file=fileChooser.showOpenDialog(root.getScene().getWindow());
-        FileOutputStream fos=new FileOutputStream(file);
-        BufferedOutputStream bos=null;
-        try {
-
-            bos = new BufferedOutputStream(fos);
-            bos.write(text.getBytes());
-        }finally {
-            bos.close();
+        File file=fileChooser.showSaveDialog(root.getScene().getWindow());
+        if (file!=null){
+            FileOutputStream fos=new FileOutputStream(file);
+            BufferedOutputStream bos=new BufferedOutputStream(fos);
+            try {
+                bos.write(text.getBytes());
+            }finally {
+                bos.close();
+            }
         }
+
+
     }
 
     public void mbFileExit(ActionEvent actionEvent) {
@@ -98,11 +105,47 @@ public class MainViewController {
         aboutStage.setScene(aboutScene);
         aboutStage.setTitle("About Us");
         aboutStage.centerOnScreen();
-        aboutStage.initStyle(StageStyle.TRANSPARENT);
-        root1.setBackground(Background.fill(Color.TRANSPARENT));
-        aboutScene.setFill(Color.TRANSPARENT);
+        try {
+            aboutStage.initStyle(StageStyle.TRANSPARENT);
+            root1.setBackground(Background.fill(Color.TRANSPARENT));
+            aboutScene.setFill(Color.TRANSPARENT);
+
+        }catch (ClassCastException e){
+
+        }
         aboutStage.show();
     }
 
+    public void mbEditCutOnAction(ActionEvent e) {
+        selectedText = txtTexthtml.getSelectedText();
+        if(!selectedText.isEmpty()){
+            Clipboard clipboard=Clipboard.getSystemClipboard();
+            ClipboardContent content=new ClipboardContent();
+            content.putString(selectedText);
+            clipboard.setContent(content);
+            txtTexthtml.deleteText(txtTexthtml.getSelection());
+        }
+    }
 
+    public void mbEditCopyOnAction(ActionEvent actionEvent) {
+        selectedText= txtTexthtml.getSelectedText();
+        if(!selectedText.isEmpty()){
+            Clipboard clipboard=Clipboard.getSystemClipboard();
+            ClipboardContent content=new ClipboardContent();
+            content.putString(selectedText);
+            clipboard.setContent(content);
+
+        }
+    }
+
+    public void mbEditPasteOnAction(ActionEvent actionEvent) {
+        Clipboard clipboard=Clipboard.getSystemClipboard();
+        if(clipboard.hasString()){
+            txtTexthtml.insertText(txtTexthtml.getCaretPosition(),selectedText);
+        }
+    }
+
+    public void mbEditSelectAllOnAction(ActionEvent e) {
+
+    }
 }
