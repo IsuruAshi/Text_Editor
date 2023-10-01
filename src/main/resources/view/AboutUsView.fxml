@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -7,22 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" onKeyReleased="#KeyReleasedOnAction" onMouseDragged="#onMouseMove" onMouseReleased="#OnMouseClicked" prefHeight="723.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.AboutUsSceneController">
+<AnchorPane fx:id="root" onKeyReleased="#KeyReleasedOnAction" onMouseDragged="#onMouseMove" onMouseReleased="#OnMouseClicked" prefHeight="744.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.AboutUsSceneController">
    <children>
-      <ImageView fitHeight="813.0" fitWidth="722.0" layoutX="55.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="795.0" fitWidth="744.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../asset.img/image.png" />
          </image>
       </ImageView>
-      <Label layoutX="351.0" layoutY="153.0" text="About Us" textFill="#fffefe">
+      <Label layoutX="288.0" layoutY="139.0" text="About Us" textFill="#fffefe" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="139.0">
          <font>
             <Font name="FreeMono Bold" size="24.0" />
          </font>
       </Label>
-      <TextArea editable="false" layoutX="212.0" layoutY="197.0" opacity="0.7" prefHeight="390.0" prefWidth="394.0" style="-fx-pref-column-count: black;" text="At Text Editor, we are dedicated to revolutionizing your digital workspace through our cutting-edge text editor software. With a relentless commitment to innovation, we strive to empower individuals and businesses alike to unlock their full creative potential.&#10;&#10;Our user-centric approach ensures that our software is intuitive and feature-rich, making it suitable for both novice and experienced users. We prioritize seamless collaboration, offering real-time editing and sharing capabilities that streamline productivity.&#10;&#10;Security is paramount to us, with robust encryption and privacy features safeguarding your sensitive data. With [Text Editor Software], you can trust that your work is protected.&#10;&#10;Join us on our mission to transform the way you work with text, and experience a new era of efficiency and creativity." wrapText="true">
+      <TextArea editable="false" layoutX="161.0" layoutY="179.0" opacity="0.7" prefHeight="402.0" prefWidth="403.0" style="-fx-pref-column-count: black;" text="At Text Editor, we are dedicated to revolutionizing your digital workspace through our cutting-edge text editor software. With a relentless commitment to innovation, we strive to empower individuals and businesses alike to unlock their full creative potential.&#10;&#10;Our user-centric approach ensures that our software is intuitive and feature-rich, making it suitable for both novice and experienced users. We prioritize seamless collaboration, offering real-time editing and sharing capabilities that streamline productivity.&#10;&#10;Security is paramount to us, with robust encryption and privacy features safeguarding your sensitive data. With [Text Editor Software], you can trust that your work is protected.&#10;&#10;Join us on our mission to transform the way you work with text, and experience a new era of efficiency and creativity." wrapText="true" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="179.0">
          <font>
             <Font name="FreeSerif Bold Italic" size="15.0" />
          </font>
       </TextArea>
+      <Button fx:id="btnClose" blendMode="OVERLAY" layoutX="507.0" layoutY="137.0" mnemonicParsing="false" onAction="#btnCloseOnAction" text="X" textFill="#03010d" AnchorPane.rightAnchor="216.0" AnchorPane.topAnchor="137.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
